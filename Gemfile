@@ -10,6 +10,10 @@ gem 'devise'
 gem 'client_side_validations', :git => 'https://github.com/bcardarella/client_side_validations.git'
 gem 'jquery-rails'
 
+group :test, :development do
+  gem 'ruby-debug19'
+end
+
 # Use unicorn as the web server
 # gem 'unicorn'
 
