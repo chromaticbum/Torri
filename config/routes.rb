@@ -1,4 +1,8 @@
 Torri::Application.routes.draw do
+  resources :cities
+
+  resources :states
+
   devise_for :users
 
   root to: 'home#index'

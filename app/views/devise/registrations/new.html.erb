@@ -1,20 +1,35 @@
 <h2>Sign up</h2>
 
 <%= form_for(@user, :url => registration_path(resource_name), :validate => true) do |f| %>
-  <p>
-    <%= f.label :email %><br/>
+  <div class="field">
+    <%= f.label :state %>
+    <br/>
+    <%= f.text_field :state %>
+  </div>
+
+  <div class="field">
+    <%= f.label :city %>
+    <br/>
+    <%= f.text_field :city %>
+  </div>
+
+  <div class="field">
+    <%= f.label :email %>
+    <br/>
     <%= f.email_field :email, :validate => true %>
-  </p>
+  </div>
 
-  <p>
-    <%= f.label :password %><br/>
+  <div class="field">
+    <%= f.label :password %>
+    <br/>
     <%= f.password_field :password, :validate => true %>
-  </p>
+  </div>
 
-  <p>
-    <%= f.label :password_confirmation %><br/>
+  <div class="field">
+    <%= f.label :password_confirmation %>
+    <br/>
     <%= f.password_field :password_confirmation, :validate => true %>
-  </p>
+  </div>
 
   <p><%= f.submit "Sign up" %></p>
 <% end %>
