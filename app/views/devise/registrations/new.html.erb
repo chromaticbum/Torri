@@ -31,7 +31,9 @@
     <%= f.password_field :password_confirmation, :validate => true %>
   </div>
 
-  <p><%= f.submit "Sign up" %></p>
+  <div class="actions">
+    <%= f.submit "Sign up" %>
+  </div>
 <% end %>
 
 <%= render :partial => "devise/shared/links" %>
