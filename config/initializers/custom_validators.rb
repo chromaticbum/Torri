@@ -1,6 +1,6 @@
 class StateValidator < ActiveModel::EachValidator
   def validate_each(record, attr_name, value)
-    unless ::State.where(:name => value).exists?
+    unless ::State.where('lower(name) = lower(?)', value).exists?
       record.errors.add(attr_name, :state, options.merge(:value => value))
     end
   end
@@ -15,7 +15,7 @@ end
 module ClientSideValidations::Middleware
   class State < Base
     def response
-      if ::State.where(:name => request.params[:name]).exists?
+      if ::State.where('lower(name) = lower(?)', request.params[:name]).exists?
         self.status = 200
       else
         self.status = 404
@@ -43,8 +43,8 @@ end
 module ClientSideValidations::Middleware
   class City < Base
     def response
-      state = ::State.find_by_name(request.params[:state_name])
-      if not state.nil? and state.cities.where('name = ?', request.params[:name]).exists?
+      state = ::State.where('lower(name) = lower(?)', request.params[:state_name]).first
+      if not state.nil? and state.cities.where('lower(name) = lower(?)', request.params[:name]).exists?
         self.status = 200
       else
         self.status = 404

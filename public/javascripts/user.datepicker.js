@@ -10,7 +10,7 @@ $(document).ready(function() {
     stepMonths: 12,
     yearRange: "c-100:c+10",
     onClose: function(dateText, inst) {
-      $(inst.input).change().focusout();
+      $(inst.input).focusout();
     }
   });
 })

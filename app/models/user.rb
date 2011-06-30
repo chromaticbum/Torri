@@ -14,4 +14,6 @@ class User < ActiveRecord::Base
   validates_presence_of :state
   validates_presence_of :city
   validates_presence_of :birthday
+
+  validates_format_of :birthday, :with => /^\d{1,2}\/\d{1,2}\/\d{4}$/
 end

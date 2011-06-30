@@ -1,7 +1,7 @@
 class City < ActiveRecord::Base
-  belongs_to :state
-
+  validates_uniqueness_of :name, :case_sensitive => false, :scope => :state_id
   validates_presence_of :name
   validates_length_of :name, :minimum => 2
-  validates_uniqueness_of :name, :scope => :state_id
+
+  belongs_to :state
 end

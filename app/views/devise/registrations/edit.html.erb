@@ -4,19 +4,19 @@
 
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {:method => :put}, :validate => true) do |f| %>
   <div class="field">
-    <%= f.label :state %>
+    <%= f.label :state %> <%= link_to 'new state', new_state_path %>
     <br/>
     <%= f.text_field :state %>
   </div>
 
   <div class="field">
-    <%= f.label :city %>
+    <%= f.label :city %> <%= link_to 'new city', new_city_path %>
     <br/>
     <%= f.text_field :city %>
   </div>
 
   <div class="field">
-    <%= f.label :birthday %><br/>
+    <%= f.label :birthday %> (dd/mm/yyyy)<br/>
     <%= f.text_field :birthday, :class => 'date_picker', :value => resource.birthday.try(:strftime, "%d/%m/%Y") %>
   </div>
 
