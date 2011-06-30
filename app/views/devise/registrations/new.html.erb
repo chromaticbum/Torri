@@ -1,5 +1,7 @@
 <h2>Sign up</h2>
 
+<%= render :partial => 'instructions' %>
+
 <%= form_for(@user, :url => registration_path(resource_name), :validate => true) do |f| %>
   <div class="field">
     <%= f.label :state %>
