@@ -9,6 +9,7 @@ gem 'sqlite3'
 gem 'devise'
 gem 'client_side_validations', :git => 'https://github.com/bcardarella/client_side_validations.git'
 gem 'jquery-rails'
+gem 'rake', '0.8.7'
 
 group :test, :development do
   gem 'ruby-debug19'
