@@ -6,3 +6,7 @@ div.field_with_errors label.message {
   color: red;
   margin-left: 6px;
 }
+
+.hidden {
+  display: none;
+}

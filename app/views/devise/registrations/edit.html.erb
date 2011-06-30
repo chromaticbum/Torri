@@ -14,6 +14,12 @@
   </div>
 
   <div class="field">
+    <%= label_tag :birthday %><br/>
+    <%= f.text_field :birthday, :class => 'hidden' %>
+    <%= text_field_tag :birthday, resource.birthday.try(:strftime, "%m/%d/%Y"), :class => 'date_picker', :id => 'birthday_picker'  %>
+  </div>
+
+  <div class="field">
     <%= f.label :email %>
     <br/>
     <%= f.email_field :email, :validate => true %>
