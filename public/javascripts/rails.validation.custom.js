@@ -22,10 +22,30 @@ clientSideValidations.validators.remote['city'] = function(element, options) {
 }
 
 clientSideValidations.validators.local['monday'] = function(element, options) {
-  var date_parts = element.val().split("/");
-  var date = new Date(date_parts[2], date_parts[1] - 1, date_parts[0]);
+  var dateParts = element.val().split("/");
+
+  if(dateParts.length != 3) {
+    return options.message;
+  }
+
+  var date = new Date(dateParts[2], dateParts[1] - 1, dateParts[0]);
 
   if(date.getDay() != 1) {
+    return options.message;
+  }
+}
+
+clientSideValidations.validators.local['date'] = function(element, options) {
+  var dateParts = element.val().split("/");
+
+  if(dateParts.length != 3) {
+    return options.message;
+  }
+
+  dateParts[1] = dateParts[1] - 1;
+  var date = new Date(dateParts[2], dateParts[1], dateParts[0]);
+
+  if(date.getFullYear() != dateParts[2] || date.getMonth() != dateParts[1] || date.getDate() != dateParts[0]) {
     return options.message;
   }
 }

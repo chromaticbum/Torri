@@ -9,6 +9,9 @@ $(document).ready(function() {
     changeMonth: true,
     stepMonths: 12,
     yearRange: "c-100:c+10",
+    beforeShow: function(dateText, inst) {
+      $(inst.input).focusout();
+    },
     onClose: function(dateText, inst) {
       $(inst.input).focusout();
     }

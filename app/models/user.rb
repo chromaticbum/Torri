@@ -7,13 +7,13 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :city, :state, :birthday
 
-  validates_state :state
-  validates_city :city
-  validates_monday :birthday
-
   validates_presence_of :state
   validates_presence_of :city
+
+  validates_date :birthday
+  validates_monday :birthday
   validates_presence_of :birthday
 
-  validates_format_of :birthday, :with => /^\d{1,2}\/\d{1,2}\/\d{4}$/
+  validates_state :state
+  validates_city :city
 end
