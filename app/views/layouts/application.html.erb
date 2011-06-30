@@ -14,15 +14,15 @@
       <% unless user_signed_in? %>
         <%= form_for('user', :url => user_session_path) do |f| %>
           <div class="field">
-            <%= f.label :email %>
+            <%= f.label :email, :for => 'sign_in_email' %>
             <br/>
-            <%= f.text_field :email %>
+            <%= f.text_field :email, :id => 'sign_in_email' %>
           </div>
 
           <div class="field">
-            <%= f.label :password %>
+            <%= f.label :password, :for => 'sign_in_password' %>
             <br/>
-            <%= f.password_field :password %>
+            <%= f.password_field :password, :id => 'sign_in_password' %>
           </div>
 
           <div class="actions">
