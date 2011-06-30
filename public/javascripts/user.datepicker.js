@@ -7,6 +7,8 @@ $(document).ready(function() {
     dateFormat: "dd/mm/yy",
     changeYear: true,
     changeMonth: true,
+    stepMonths: 12,
+    yearRange: "c-100:c+10",
     onClose: function(dateText, inst) {
       $(inst.input).change().focusout();
     }
