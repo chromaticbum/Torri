@@ -8,11 +8,48 @@
 </head>
 <body>
 
-<p class="notice"><%= notice %></p>
+<div id="header">
+  <div id="header-container">
+    <div id="user-form">
+      <% unless user_signed_in? %>
+        <%= form_for('user', :url => user_session_path) do |f| %>
+          <div class="field">
+            <%= f.label :email %>
+            <br/>
+            <%= f.text_field :email %>
+          </div>
 
-<p class="alert"><%= alert %></p>
+          <div class="field">
+            <%= f.label :password %>
+            <br/>
+            <%= f.password_field :password %>
+          </div>
 
-<%= yield %>
+          <div class="actions">
+            <%= f.submit 'Sign in' %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+
+    <div id="links">
+      <%= link_to('Sign out', destroy_user_session_path) if user_signed_in? %>
+      <%= link_to('Edit account details', edit_user_registration_path) if user_signed_in? %>
+      <%= link_to('Sign up', new_user_registration_path) unless user_signed_in? %>
+      <%= link_to 'States', states_path %>
+      <%= link_to 'Cities', cities_path %>
+    </div>
+  </div>
+</div>
+
+<div id="content">
+  <div class="notice"><%= notice %></div>
+
+  <div class="alert"><%= alert %></div>
+
+  <%= yield %>
+</div>
+
 
 </body>
 </html>
