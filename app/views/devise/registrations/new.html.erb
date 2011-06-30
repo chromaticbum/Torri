@@ -14,9 +14,8 @@
   </div>
 
   <div class="field">
-    <%= label_tag :birthday %><br/>
-    <%= f.text_field :birthday, :class => "hidden" %>
-    <%= text_field_tag :birthday, resource.birthday.try(:strftime, "%m/%d/%Y"), :class => 'date_picker', :id => 'birthday_picker'  %>
+    <%= f.label :birthday %><br/>
+    <%= f.text_field :birthday, :class => 'date_picker', :value => resource.birthday.try(:strftime, "%d/%m/%Y") %>
   </div>
 
   <div class="field">

@@ -6,3 +6,4 @@ en:
     messages:
       state: "not a valid state"
       city: "not a valid city"
+      monday: "must be a Monday"

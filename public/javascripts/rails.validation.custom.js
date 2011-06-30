@@ -21,6 +21,15 @@ clientSideValidations.validators.remote['city'] = function(element, options) {
   }
 }
 
+clientSideValidations.validators.local['monday'] = function(element, options) {
+  var date_parts = element.val().split("/");
+  var date = new Date(date_parts[2], date_parts[1] - 1, date_parts[0]);
+
+  if(date.getDay() != 1) {
+    return options.message;
+  }
+}
+
 $(document).ready(function() {
   $("#user_state").change(function() {
     $(this)[0].form["user[city]"].value = "";

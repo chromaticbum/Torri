@@ -3,14 +3,12 @@ $(document).ready(function() {
     $(this)[0].form["user[city]"].value = "";
   })
 
-  $("#birthday_picker").datepicker({
-    dateFormat: "mm/dd/yy",
-    altField: "#user_birthday",
-    altFormat: "dd/mm/yy",
+  $("#user_birthday").datepicker({
+    dateFormat: "dd/mm/yy",
     changeYear: true,
     changeMonth: true,
     onClose: function(dateText, inst) {
-      $($(inst.input).datepicker("option", "altField")).change().focusout();
+      $(inst.input).change().focusout();
     }
   });
 })

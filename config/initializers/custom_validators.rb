@@ -53,3 +53,17 @@ module ClientSideValidations::Middleware
     end
   end
 end
+
+class MondayValidator < ActiveModel::EachValidator
+  def validate_each(record, attr_name, value)
+    unless value.monday?
+      record.errors.add(attr_name, :monday, options.merge(:value => value))
+    end
+  end
+end
+
+module ActiveModel::Validations::HelperMethods
+  def validates_monday(*attr_names)
+    validates_with MondayValidator, _merge_attributes(attr_names)
+  end
+end

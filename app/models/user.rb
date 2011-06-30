@@ -9,4 +9,5 @@ class User < ActiveRecord::Base
 
   validates_state :state
   validates_city :city
+  validates_monday :birthday
 end
