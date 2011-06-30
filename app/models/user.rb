@@ -10,4 +10,8 @@ class User < ActiveRecord::Base
   validates_state :state
   validates_city :city
   validates_monday :birthday
+
+  validates_presence_of :state
+  validates_presence_of :city
+  validates_presence_of :birthday
 end
